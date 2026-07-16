@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 93 - Background texture options</title>
+<style>
+:root{
+  --ink:#0e0e0e; --orange:#EA6A0A; --orange-deep:#C55A11;
+  --paper:#f6f2ee; --muted:#9a938c;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--ink); color:#fff; -webkit-font-smoothing:antialiased;
+}
+
+/* ---- intro ---- */
+.intro{max-width:780px;margin:0 auto;padding:56px 24px 40px}
+.intro h1{font-size:34px;line-height:1.1;letter-spacing:-.015em;margin:0 0 14px;font-weight:800}
+.intro h1 .o{color:var(--orange)}
+.intro p{color:#c9c4bf;font-size:15.5px;line-height:1.6;margin:0 0 12px}
+.rule{height:3px;width:64px;background:var(--orange);border-radius:2px;margin:20px 0 26px}
+
+/* ---- the sticky compare controls ---- */
+.controls{
+  position:fixed; z-index:60; left:50%; transform:translateX(-50%); bottom:18px;
+  display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-content:center;
+  background:rgba(14,14,14,.86); backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.14); border-radius:999px; padding:8px 10px;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.controls button{
+  font:inherit; font-size:12.5px; font-weight:600; cursor:pointer;
+  background:transparent; color:#d8d3ce; border:1px solid transparent;
+  padding:7px 13px; border-radius:999px;
+}
+.controls button:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+.controls button.on{background:var(--orange); color:#fff}
+.controls .sep{width:1px;height:20px;background:rgba(255,255,255,.16);margin:0 2px}
+
+/* ---- each option = one full viewport ---- */
+.opt{position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; isolation:isolate}
+.tex{position:absolute; inset:0; z-index:0; pointer-events:none}
+.tex svg{width:100%;height:100%;display:block}
+
+.opt .inner{position:relative; z-index:2; max-width:1120px; margin:0 auto; padding:88px 24px; width:100%}
+.tag{
+  display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--orange); border:1px solid rgba(234,106,10,.5); border-radius:999px; padding:5px 11px; margin-bottom:20px;
+}
+.opt h2{font-family:Georgia,"Times New Roman",serif; font-size:clamp(32px,4.6vw,54px); line-height:1.08; margin:0 0 18px; font-weight:600; max-width:16ch}
+.opt h2 em{color:var(--orange); font-style:normal}
+.opt .lede{font-size:17px; line-height:1.6; color:#ddd8d3; max-width:52ch; margin:0 0 26px}
+.cta{
+  display:inline-block; background:var(--orange); color:#fff; text-decoration:none;
+  font-weight:700; font-size:14px; padding:13px 24px; border-radius:999px;
+}
+.cta:hover{background:var(--orange-deep)}
+
+/* the legibility scrim - toggleable */
+.scrim{position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0; transition:opacity .25s ease}
+body.scrim-on .scrim{opacity:1}
+
+/* the read-out panel describing each option */
+.note{
+  position:absolute; z-index:3; right:24px; bottom:24px; max-width:340px;
+  background:rgba(9,9,9,.82); backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12); border-left:3px solid var(--orange);
+  border-radius:0 10px 10px 0; padding:14px 16px;
+}
+.note .lab{display:block; font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin-bottom:6px}
+.note p{margin:0 0 7px; font-size:12.5px; line-height:1.5; color:#cfcac5}
+.note p:last-child{margin-bottom:0}
+.note b{color:#fff; font-weight:600}
+body.notes-off .note{display:none}
+@media (max-width:900px){ .note{position:static; margin:28px 0 0; max-width:none} }
+</style>
+</head>
+<body>
+
+<section class="intro">
+  <h1>Background texture <span class="o">options</span></h1>
+  <div class="rule"></div>
+  <p>Zulfi doesn't want flat solid colour - he wants the backgrounds to feel like <b>rock / stone, with cracks and grain</b>. Texture lies in a static mockup, so here are four treatments rendered at real size in a real browser. Scroll through and react to them.</p>
+  <p>All four are <b>generated in code</b> (SVG filters) rather than photographs: nothing to license, nothing to download, scales to any screen, and weighs virtually nothing. Use the buttons at the bottom to jump between them, toggle the text scrim, and hide these notes for a clean look.</p>
+  <p style="color:var(--muted);font-size:13.5px">The headline, body copy and orange button are identical in each so you're judging <em>only</em> the background.</p>
+</section>
+
+<!-- =============== 1. FINE GRAIN =============== -->
+<section class="opt" id="o1">
+  <div class="tex">
+    <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="f-grain" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n"/>
+          <feColorMatrix in="n" type="saturate" values="0"/>
+        </filter>
+      </defs>
+      <rect width="100%" height="100%" fill="#0e0e0e"/>
+      <rect width="100%" height="100%" filter="url(#f-grain)" opacity="0.13" style="mix-blend-mode:screen"/>
+    </svg>
+  </div>
+  <div class="scrim" style="background:radial-gradient(120% 90% at 20% 50%, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 70%)"></div>
+  <div class="inner">
+    <span class="tag">Option 1</span>
+    <h2>Education is the most powerful <em>weapon</em></h2>
+    <p class="lede">A resource collection drawing on film, literature and music to open up conversations about the social issues that shape our world.</p>
+    <a class="cta" href="#">Explore the resources</a>
+  </div>
+  <div class="note">
+    <span class="lab">Fine grain</span>
+    <p><b>What it is:</b> black with a barely-there film grain over it. Kills the "flat digital black" feel without announcing itself.</p>
+    <p><b>Pro:</b> the safest, most premium option. Text stays perfectly legible. Never looks dated or cheap.</p>
+    <p><b>Con:</b> it may read as <em>too</em> subtle for Zulfi - it is not literally "rock".</p>
+  </div>
+</section>
+
+<!-- =============== 2. STONE SLAB =============== -->
+<section class="opt" id="o2">
+  <div class="tex">
+    <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="f-stone" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.014 0.021" numOctaves="5" seed="7" result="n"/>
+          <feDiffuseLighting in="n" lighting-color="#9d9186" surfaceScale="2.4" result="l">
+            <feDistantLight azimuth="235" elevation="52"/>
+          </feDiffuseLighting>
+        </filter>
+      </defs>
+      <rect width="100%" height="100%" fill="#0e0e0e"/>
+      <rect width="100%" height="100%" filter="url(#f-stone)" opacity="0.34" style="mix-blend-mode:screen"/>
+      <rect width="100%" height="100%" fill="url(#g-vig2)"/>
+      <defs>
+        <radialGradient id="g-vig2" cx="50%" cy="50%" r="75%">
+          <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#000" stop-opacity=".55"/>
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+  <div class="scrim" style="background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,0) 75%)"></div>
+  <div class="inner">
+    <span class="tag">Option 2</span>
+    <h2>Education is the most powerful <em>weapon</em></h2>
+    <p class="lede">A resource collection drawing on film, literature and music to open up conversations about the social issues that shape our world.</p>
+    <a class="cta" href="#">Explore the resources</a>
+  </div>
+  <div class="note">
+    <span class="lab">Stone slab</span>
+    <p><b>What it is:</b> a lit stone surface - real mottled relief, like a slab of dark rock catching a low light.</p>
+    <p><b>Pro:</b> unmistakably the "rock" Zulfi asked for. Closest to the literal brief.</p>
+    <p><b>Con:</b> the busiest, and the one that can tip into "cheap stock texture" if pushed any further. Toggle the scrim off - text stays readable at this strength, so the scrim is here for depth and focus rather than rescue. It stops being optional if we lighten the stone.</p>
+  </div>
+</section>
+
+<!-- =============== 3. CRACKED STONE =============== -->
+<section class="opt" id="o3">
+  <div class="tex">
+    <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+      <defs>
+        <filter id="f-stone3" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.016 0.022" numOctaves="5" seed="19" result="n"/>
+          <feDiffuseLighting in="n" lighting-color="#8f857b" surfaceScale="1.9" result="l">
+            <feDistantLight azimuth="220" elevation="50"/>
+          </feDiffuseLighting>
+        </filter>
+        <filter id="f-warp" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="5" result="t"/>
+          <feDisplacementMap in="SourceGraphic" in2="t" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <radialGradient id="g-vig3" cx="42%" cy="50%" r="80%">
+          <stop offset="45%" stop-color="#000" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#000" stop-opacity=".6"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="900" fill="#0e0e0e"/>
+      <rect width="1440" height="900" filter="url(#f-stone3)" opacity="0.26" style="mix-blend-mode:screen"/>
+      <!-- hand-drawn crack system, warped to look organic -->
+      <g filter="url(#f-warp)" fill="none" stroke-linecap="round">
+        <g stroke="#000" stroke-opacity=".55">
+          <path d="M1180,-20 L1120,150 L1160,300 L1080,470 L1120,640 L1040,900" stroke-width="3"/>
+          <path d="M1120,150 L1290,210" stroke-width="1.6"/>
+          <path d="M1160,300 L1330,340 L1440,300" stroke-width="2"/>
+          <path d="M1080,470 L960,520 L890,660" stroke-width="1.5"/>
+          <path d="M1120,640 L1280,700 L1360,860" stroke-width="1.8"/>
+          <path d="M960,520 L900,430" stroke-width="1.1"/>
+        </g>
+        <g stroke="#b8ada1" stroke-opacity=".22" transform="translate(1.5,1.5)">
+          <path d="M1180,-20 L1120,150 L1160,300 L1080,470 L1120,640 L1040,900" stroke-width="1.4"/>
+          <path d="M1160,300 L1330,340 L1440,300" stroke-width="1"/>
+          <path d="M1120,640 L1280,700 L1360,860" stroke-width=".9"/>
+        </g>
+      </g>
+      <rect width="1440" height="900" fill="url(#g-vig3)"/>
+    </svg>
+  </div>
+  <div class="scrim" style="background:linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.4) 48%, rgba(0,0,0,0) 78%)"></div>
+  <div class="inner">
+    <span class="tag">Option 3</span>
+    <h2>Education is the most powerful <em>weapon</em></h2>
+    <p class="lede">A resource collection drawing on film, literature and music to open up conversations about the social issues that shape our world.</p>
+    <a class="cta" href="#">Explore the resources</a>
+  </div>
+  <div class="note">
+    <span class="lab">Cracked stone</span>
+    <p><b>What it is:</b> the stone slab, plus a real crack system - drawn as lines, then warped so they fracture organically rather than looking like a vector doodle.</p>
+    <p><b>Pro:</b> exactly the "cracks" ask. The cracks sit <b>away from the text</b>, on the empty side - that's the trick that keeps it usable.</p>
+    <p><b>Con:</b> the most literal. Risks feeling thematic-with-a-capital-T on every page. Best used on the Home hero only.</p>
+  </div>
+</section>
+
+<!-- =============== 4. LAYERED EDITORIAL =============== -->
+<section class="opt" id="o4">
+  <div class="tex">
+    <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+      <defs>
+        <filter id="f-stone4" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.009 0.013" numOctaves="4" seed="3" result="n"/>
+          <feDiffuseLighting in="n" lighting-color="#7d7268" surfaceScale="1.5" result="l">
+            <feDistantLight azimuth="245" elevation="58"/>
+          </feDiffuseLighting>
+        </filter>
+        <filter id="f-grain4" x="0" y="0" width="100%" height="100%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/>
+          <feColorMatrix in="n" type="saturate" values="0"/>
+        </filter>
+        <filter id="f-warp4" x="-20%" y="-20%" width="140%" height="140%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="11" result="t"/>
+          <feDisplacementMap in="SourceGraphic" in2="t" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+        <linearGradient id="g-warm4" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#EA6A0A" stop-opacity=".13"/>
+          <stop offset="55%" stop-color="#EA6A0A" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="g-vig4" cx="38%" cy="46%" r="82%">
+          <stop offset="42%" stop-color="#000" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#000" stop-opacity=".62"/>
+        </radialGradient>
+      </defs>
+      <!-- 1. base -->
+      <rect width="1440" height="900" fill="#0e0e0e"/>
+      <!-- 2. broad slow stone mottling -->
+      <rect width="1440" height="900" filter="url(#f-stone4)" opacity="0.2" style="mix-blend-mode:screen"/>
+      <!-- 3. a warm orange bloom, ties texture to the brand -->
+      <rect width="1440" height="900" fill="url(#g-warm4)"/>
+      <!-- 4. restrained cracks, edge only, as decoration -->
+      <g filter="url(#f-warp4)" fill="none" stroke-linecap="round" opacity=".8">
+        <g stroke="#000" stroke-opacity=".4">
+          <path d="M1440,120 L1300,190 L1330,320" stroke-width="2"/>
+          <path d="M1300,190 L1180,230" stroke-width="1.1"/>
+          <path d="M-10,760 L130,700 L250,740 L340,690" stroke-width="1.8"/>
+          <path d="M130,700 L110,590" stroke-width="1"/>
+        </g>
+        <g stroke="#c4b9ad" stroke-opacity=".14" transform="translate(1,1)">
+          <path d="M1440,120 L1300,190 L1330,320" stroke-width=".9"/>
+          <path d="M-10,760 L130,700 L250,740 L340,690" stroke-width=".8"/>
+        </g>
+      </g>
+      <!-- 5. fine grain over everything, unifies the layers -->
+      <rect width="1440" height="900" filter="url(#f-grain4)" opacity="0.1" style="mix-blend-mode:screen"/>
+      <!-- 6. vignette pushes focus to the copy -->
+      <rect width="1440" height="900" fill="url(#g-vig4)"/>
+    </svg>
+  </div>
+  <div class="scrim" style="background:radial-gradient(110% 85% at 22% 50%, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 68%)"></div>
+  <div class="inner">
+    <span class="tag">Option 4 - my recommendation</span>
+    <h2>Education is the most powerful <em>weapon</em></h2>
+    <p class="lede">A resource collection drawing on film, literature and music to open up conversations about the social issues that shape our world.</p>
+    <a class="cta" href="#">Explore the resources</a>
+  </div>
+  <div class="note">
+    <span class="lab">Layered editorial</span>
+    <p><b>What it is:</b> six layers - black base, slow stone mottling, a warm orange bloom, cracks kept to the edges, fine grain, then a vignette.</p>
+    <p><b>Why this one:</b> it is textured stone in every direction Zulfi asked for, but it stays <b>a background</b>. The orange bloom is the bit that makes it feel designed for Project 93 rather than a texture bought off a shelf.</p>
+    <p><b>Scales:</b> dial the crack layer up for the Home hero, off for content pages - same system, one variable.</p>
+  </div>
+</section>
+
+<div class="controls">
+  <button data-go="#o1">1 Grain</button>
+  <button data-go="#o2">2 Stone</button>
+  <button data-go="#o3">3 Cracked</button>
+  <button data-go="#o4">4 Layered</button>
+  <span class="sep"></span>
+  <button id="scrimBtn" class="on">Text scrim: on</button>
+  <button id="notesBtn" class="on">Notes: on</button>
+</div>
+
+<script>
+document.body.classList.add('scrim-on');
+
+document.querySelectorAll('.controls [data-go]').forEach(function(b){
+  b.addEventListener('click', function(){
+    document.querySelector(b.dataset.go).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+var scrimBtn = document.getElementById('scrimBtn');
+scrimBtn.addEventListener('click', function(){
+  var on = document.body.classList.toggle('scrim-on');
+  scrimBtn.classList.toggle('on', on);
+  scrimBtn.textContent = 'Text scrim: ' + (on ? 'on' : 'off');
+});
+
+var notesBtn = document.getElementById('notesBtn');
+notesBtn.addEventListener('click', function(){
+  var off = document.body.classList.toggle('notes-off');
+  notesBtn.classList.toggle('on', !off);
+  notesBtn.textContent = 'Notes: ' + (off ? 'off' : 'on');
+});
+</script>
+</body>
+</html>

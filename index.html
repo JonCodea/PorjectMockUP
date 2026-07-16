@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 93 for Justice</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+    <defs>
+      <filter id="b-stone" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.009 0.013" numOctaves="4" seed="3" result="n"/>
+        <feDiffuseLighting in="n" lighting-color="#7d7268" surfaceScale="1.5">
+          <feDistantLight azimuth="245" elevation="58"/>
+        </feDiffuseLighting>
+      </filter>
+      <filter id="b-grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/>
+        <feColorMatrix in="n" type="saturate" values="0"/>
+      </filter>
+      <filter id="b-warp" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="11" result="t"/>
+        <feDisplacementMap in="SourceGraphic" in2="t" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <linearGradient id="b-warm" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#EA6A0A" stop-opacity=".12"/>
+        <stop offset="55%" stop-color="#EA6A0A" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="b-vig" cx="40%" cy="46%" r="82%">
+        <stop offset="42%" stop-color="#000" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000" stop-opacity=".6"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="#0e0e0e"/>
+    <rect width="1440" height="900" filter="url(#b-stone)" opacity="0.2" style="mix-blend-mode:screen"/>
+    <rect width="1440" height="900" fill="url(#b-warm)"/>
+    <g filter="url(#b-warp)" fill="none" stroke-linecap="round" opacity=".75">
+      <g stroke="#000" stroke-opacity=".4">
+        <path d="M1440,120 L1300,190 L1330,320" stroke-width="2"/>
+        <path d="M1300,190 L1180,230" stroke-width="1.1"/>
+        <path d="M-10,760 L130,700 L250,740 L340,690" stroke-width="1.8"/>
+      </g>
+      <g stroke="#c4b9ad" stroke-opacity=".13" transform="translate(1,1)">
+        <path d="M1440,120 L1300,190 L1330,320" stroke-width=".9"/>
+        <path d="M-10,760 L130,700 L250,740 L340,690" stroke-width=".8"/>
+      </g>
+    </g>
+    <rect width="1440" height="900" filter="url(#b-grain)" opacity="0.1" style="mix-blend-mode:screen"/>
+    <rect width="1440" height="900" fill="url(#b-vig)"/>
+  </svg>
+</div>
+<nav class="nav">
+  <a class="logo" href="index.html">Project 93 <span class="o">for Justice</span></a>
+  <div class="nav-links">
+    <a class="link on" href="index.html">Home</a>
+    <a class="link" href="activities.html">Activities</a>
+    <a class="link" href="campaigns.html">Campaigns</a>
+    <a class="link" href="resources.html">Resources</a>
+    <a class="link" href="about.html">About</a>
+  </div>
+</nav>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="kicker">Canterbury Christ Church University</span>
+      <h1 class="big">Education is the most powerful <em>weapon</em></h1>
+      <p class="lede">Project 93 for Justice uses film, literature, music and the arts to open up
+      conversations about the social issues that shape our world - and to make the resources for
+      those conversations easy to find.</p>
+      <div class="btns">
+        <a class="cta" href="resources.html">Explore the resources <span class="arw">-&gt;</span></a>
+        <a class="cta ghost" href="campaigns.html">See our campaigns</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>8</b><span>Themes</span></div>
+        <div class="stat"><b>26</b><span>Resources</span></div>
+        <div class="stat"><b>3</b><span>Campaigns</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Start with a theme</h2>
+          <p>Every resource is filed under the issue it speaks to.</p>
+        </div>
+        <a class="cta ghost" href="resources.html">All 8 themes</a>
+      </div>
+      <div class="themes">
+      <a class="theme-card" href="theme-sustainability.html">
+        <span class="count">5</span>
+        <div class="num">01</div>
+        <h3>Sustainability</h3>
+        <p>Living within the limits of a finite planet, and who is asked to pay when we do not.</p>
+        <span class="go">Explore this theme <span class="arw">-&gt;</span></span>
+      </a>
+      <a class="theme-card" href="theme-fast-fashion.html">
+        <span class="count">3</span>
+        <div class="num">02</div>
+        <h3>Fast Fashion</h3>
+        <p>The real price of cheap clothing, paid by the people who make it and the places it ends up.</p>
+        <span class="go">Explore this theme <span class="arw">-&gt;</span></span>
+      </a>
+      <a class="theme-card" href="theme-activism.html">
+        <span class="count">4</span>
+        <div class="num">03</div>
+        <h3>Activism</h3>
+        <p>How ordinary people organise, refuse, and force change that was said to be impossible.</p>
+        <span class="go">Explore this theme <span class="arw">-&gt;</span></span>
+      </a>
+      <a class="theme-card" href="theme-inequalities.html">
+        <span class="count">5</span>
+        <div class="num">04</div>
+        <h3>Inequalities</h3>
+        <p>Race, class and gender, and the structures that quietly sort people into different lives.</p>
+        <span class="go">Explore this theme <span class="arw">-&gt;</span></span>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>Recent campaigns</h2>
+          <p>What the project has actually done, and who led it.</p>
+        </div>
+        <a class="cta ghost" href="campaigns.html">All campaigns</a>
+      </div>
+      <div class="grid3">
+      <a class="card" href="campaign-who-made-my-clothes.html">
+        <div class="poster" style="aspect-ratio:4/3">
+          <svg preserveAspectRatio="none" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="cv40" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#3a1d05"/><stop offset="55%" stop-color="#1a1108"/><stop offset="100%" stop-color="#0b0b0b"/>
+        </linearGradient></defs>
+        <rect width="800" height="600" fill="url(#cv40)"/>
+        <circle cx="180" cy="460" r="190" fill="#EA6A0A" opacity=".11"/>
+      </svg>
+          <span class="themepill">Fast Fashion</span>
+        </div>
+        <div class="body">
+          <h3 class="title">Who Made My Clothes?</h3>
+          <p class="meta">Led by Zulfi Ali &middot; Feb - Apr 2024</p>
+          <p class="desc">A campus-wide campaign confronting the human cost of fast fashion, pairing a clothes-swap with screenings and a reading ...</p>
+        </div>
+      </a>
+      <a class="card" href="campaign-earth-charter-read-aloud.html">
+        <div class="poster" style="aspect-ratio:4/3">
+          <svg preserveAspectRatio="none" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="cv41" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#123028"/><stop offset="55%" stop-color="#0d1512"/><stop offset="100%" stop-color="#0b0b0b"/>
+        </linearGradient></defs>
+        <rect width="800" height="600" fill="url(#cv41)"/>
+        <circle cx="620" cy="140" r="190" fill="#EA6A0A" opacity=".11"/>
+      </svg>
+          <span class="themepill">Earth Charter</span>
+        </div>
+        <div class="body">
+          <h3 class="title">The Earth Charter, Read Aloud</h3>
+          <p class="meta">Led by R. Mensah &middot; Sept - Dec 2025</p>
+          <p class="desc">Sixteen principles, sixteen voices. Students, staff and local residents each recorded a section of the Earth Charter, tu...</p>
+        </div>
+      </a>
+      <a class="card" href="campaign-ninety-three-seconds.html">
+        <div class="poster" style="aspect-ratio:4/3">
+          <svg preserveAspectRatio="none" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="cv42" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2b0d0d"/><stop offset="55%" stop-color="#160b0b"/><stop offset="100%" stop-color="#0b0b0b"/>
+        </linearGradient></defs>
+        <rect width="800" height="600" fill="url(#cv42)"/>
+        <circle cx="180" cy="460" r="190" fill="#EA6A0A" opacity=".11"/>
+      </svg>
+          <span class="themepill">Nuclear Weapons</span>
+        </div>
+        <div class="body">
+          <h3 class="title">Ninety Three Seconds to Midnight</h3>
+          <p class="meta">Led by Zulfi Ali &middot; Jan - Mar 2025</p>
+          <p class="desc">Built around a screening of Oppenheimer and a panel on disarmament, this campaign asked a simple question of everyone wh...</p>
+        </div>
+      </a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Project 93 for Justice</h4>
+        <p style="font-size:13.5px;line-height:1.6;color:#c3bcb5;margin:0;max-width:38ch">
+          Using film, literature, music and the arts to open up conversations about the social issues
+          that shape our world.
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="activities.html">Activities</a>
+        <a href="campaigns.html">Campaigns</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </div>
+      <div>
+        <h4>Credits</h4>
+        <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank" rel="noopener">Open Library Covers API</a>
+        <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">The Movie Database (TMDB)</a>
+        <a href="design-notes.html">Design notes</a>
+      </div>
+    </div>
+    <div class="fine">
+      <b>Image credits.</b> Book covers are embedded from the Open Library Covers API. Film information links out to
+      TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB. Covers and posters remain the
+      property of their respective publishers and studios and are shown here for identification and comment.
+      <br><br>
+      <b>Takedown.</b> If you hold rights in an image used here and would like it removed, contact us and we will
+      remove it promptly.
+      <br><br>
+      <b>Mockup notice.</b> This is a design mockup built for review. Campaign entries, activity posters and dates
+      are placeholders for the client's own content.
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About - Project 93 for Justice</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+    <defs>
+      <filter id="b-stone" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.009 0.013" numOctaves="4" seed="3" result="n"/>
+        <feDiffuseLighting in="n" lighting-color="#7d7268" surfaceScale="1.5">
+          <feDistantLight azimuth="245" elevation="58"/>
+        </feDiffuseLighting>
+      </filter>
+      <filter id="b-grain" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/>
+        <feColorMatrix in="n" type="saturate" values="0"/>
+      </filter>
+      <filter id="b-warp" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="11" result="t"/>
+        <feDisplacementMap in="SourceGraphic" in2="t" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <linearGradient id="b-warm" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#EA6A0A" stop-opacity=".12"/>
+        <stop offset="55%" stop-color="#EA6A0A" stop-opacity="0"/>
+      </linearGradient>
+      <radialGradient id="b-vig" cx="40%" cy="46%" r="82%">
+        <stop offset="42%" stop-color="#000" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000" stop-opacity=".6"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="900" fill="#0e0e0e"/>
+    <rect width="1440" height="900" filter="url(#b-stone)" opacity="0.2" style="mix-blend-mode:screen"/>
+    <rect width="1440" height="900" fill="url(#b-warm)"/>
+    <g filter="url(#b-warp)" fill="none" stroke-linecap="round" opacity=".75">
+      <g stroke="#000" stroke-opacity=".4">
+        <path d="M1440,120 L1300,190 L1330,320" stroke-width="2"/>
+        <path d="M1300,190 L1180,230" stroke-width="1.1"/>
+        <path d="M-10,760 L130,700 L250,740 L340,690" stroke-width="1.8"/>
+      </g>
+      <g stroke="#c4b9ad" stroke-opacity=".13" transform="translate(1,1)">
+        <path d="M1440,120 L1300,190 L1330,320" stroke-width=".9"/>
+        <path d="M-10,760 L130,700 L250,740 L340,690" stroke-width=".8"/>
+      </g>
+    </g>
+    <rect width="1440" height="900" filter="url(#b-grain)" opacity="0.1" style="mix-blend-mode:screen"/>
+    <rect width="1440" height="900" fill="url(#b-vig)"/>
+  </svg>
+</div>
+<nav class="nav">
+  <a class="logo" href="index.html">Project 93 <span class="o">for Justice</span></a>
+  <div class="nav-links">
+    <a class="link" href="index.html">Home</a>
+    <a class="link" href="activities.html">Activities</a>
+    <a class="link" href="campaigns.html">Campaigns</a>
+    <a class="link" href="resources.html">Resources</a>
+    <a class="link on" href="about.html">About</a>
+  </div>
+</nav>
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="kicker">About</span>
+      <h1 class="big">Why <em>ninety three</em></h1>
+      <p class="lede">Project 93 for Justice is a Canterbury Christ Church University project using the
+      arts to open up conversations about social justice - and to leave behind resources other people
+      can pick up and use.</p>
+      <div class="rule"></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="article">
+      <p class="note-banner"><b>Placeholder copy.</b> This page is laid out and ready - the client's own
+      words about the project's history and people drop straight in.</p>
+
+      <p>This is where the project explains itself: where the name came from, who started it, and what it
+      is trying to do. It is the page people reach when they have seen something they liked and want to
+      know who is behind it.</p>
+
+      <h3>What we do</h3>
+      <p>We run campaigns around a social issue, put on activities that bring people into the argument,
+      and collect the films, books and music that made the argument well in the first place. The resource
+      collection is the part that outlives any single campaign.</p>
+
+      <blockquote>Education is the most powerful weapon which you can use to change the world.</blockquote>
+
+      <h3>Who is involved</h3>
+      <p>Staff, students and interns across the university, plus the partners who work with us on
+      individual campaigns. Names, roles and photographs go here.</p>
+
+      <h3>Get in touch</h3>
+      <p>How to reach the project, and how to suggest a resource for the collection.</p>
+
+      <div style="margin-top:38px;display:flex;gap:14px;flex-wrap:wrap">
+        <a class="cta" href="resources.html">Explore the resources <span class="arw">-&gt;</span></a>
+        <a class="cta ghost" href="campaigns.html">See our campaigns</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Project 93 for Justice</h4>
+        <p style="font-size:13.5px;line-height:1.6;color:#c3bcb5;margin:0;max-width:38ch">
+          Using film, literature, music and the arts to open up conversations about the social issues
+          that shape our world.
+        </p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="activities.html">Activities</a>
+        <a href="campaigns.html">Campaigns</a>
+        <a href="resources.html">Resources</a>
+        <a href="about.html">About</a>
+      </div>
+      <div>
+        <h4>Credits</h4>
+        <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank" rel="noopener">Open Library Covers API</a>
+        <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">The Movie Database (TMDB)</a>
+        <a href="design-notes.html">Design notes</a>
+      </div>
+    </div>
+    <div class="fine">
+      <b>Image credits.</b> Book covers are embedded from the Open Library Covers API. Film information links out to
+      TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB. Covers and posters remain the
+      property of their respective publishers and studios and are shown here for identification and comment.
+      <br><br>
+      <b>Takedown.</b> If you hold rights in an image used here and would like it removed, contact us and we will
+      remove it promptly.
+      <br><br>
+      <b>Mockup notice.</b> This is a design mockup built for review. Campaign entries, activity posters and dates
+      are placeholders for the client's own content.
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
