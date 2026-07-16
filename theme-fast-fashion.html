@@ -24,18 +24,21 @@
         <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="11" result="t"/>
         <feDisplacementMap in="SourceGraphic" in2="t" scale="12" xChannelSelector="R" yChannelSelector="G"/>
       </filter>
-      <linearGradient id="b-warm" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#EA6A0A" stop-opacity=".12"/>
-        <stop offset="55%" stop-color="#EA6A0A" stop-opacity="0"/>
+      <!-- the black-to-orange gradient itself -->
+      <linearGradient id="b-ember" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%"  stop-color="#EA6A0A" stop-opacity=".55"/>
+        <stop offset="42%" stop-color="#8a3c05" stop-opacity=".22"/>
+        <stop offset="75%" stop-color="#0e0e0e" stop-opacity="0"/>
       </linearGradient>
-      <radialGradient id="b-vig" cx="40%" cy="46%" r="82%">
-        <stop offset="42%" stop-color="#000" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#000" stop-opacity=".6"/>
+      <!-- keeps the top-left (where the copy lives) dark enough to read on -->
+      <radialGradient id="b-vig" cx="28%" cy="34%" r="88%">
+        <stop offset="38%" stop-color="#000" stop-opacity=".28"/>
+        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
       </radialGradient>
     </defs>
     <rect width="1440" height="900" fill="#0e0e0e"/>
+    <rect width="1440" height="900" fill="url(#b-ember)"/>
     <rect width="1440" height="900" filter="url(#b-stone)" opacity="0.2" style="mix-blend-mode:screen"/>
-    <rect width="1440" height="900" fill="url(#b-warm)"/>
     <g filter="url(#b-warp)" fill="none" stroke-linecap="round" opacity=".75">
       <g stroke="#000" stroke-opacity=".4">
         <path d="M1440,120 L1300,190 L1330,320" stroke-width="2"/>
@@ -91,7 +94,7 @@
           <p class="meta">Dana Thomas &middot; 2019</p>
           <p class="desc">Follows the fast fashion supply chain from cotton field to landfill, and the people along it.</p>
           <div class="why"><div class="box">
-            <span class="lab">Why it's here</span><p>The spine of the Who Made My Clothes? campaign.</p>
+            <span class="lab">Why it's here</span><p>The project&#x27;s note on why this resource earned its place goes here.</p>
           </div></div>
         </div>
       </a>
@@ -106,7 +109,7 @@
           <p class="meta">Naomi Klein &middot; 1999</p>
           <p class="desc">How brands replaced products, and what that did to the factories behind them.</p>
           <div class="why"><div class="box">
-            <span class="lab">Why it's here</span><p>Explains why a logo can be worth more than the labour that made the garment.</p>
+            <span class="lab">Why it's here</span><p>The project&#x27;s note on why this resource earned its place goes here.</p>
           </div></div>
         </div>
       </a>
@@ -128,7 +131,7 @@
           <p class="meta">Andrew Morgan &middot; 2015</p>
           <p class="desc">A documentary on who pays for cheap clothing, filmed in the countries that make it.</p>
           <div class="why"><div class="box">
-            <span class="lab">Why it's here</span><p>Pairs directly with Fashionopolis for a screening plus reading session.</p>
+            <span class="lab">Why it's here</span><p>The project&#x27;s note on why this resource earned its place goes here.</p>
           </div></div>
         </div>
       </a>

@@ -24,18 +24,21 @@
         <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="11" result="t"/>
         <feDisplacementMap in="SourceGraphic" in2="t" scale="12" xChannelSelector="R" yChannelSelector="G"/>
       </filter>
-      <linearGradient id="b-warm" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#EA6A0A" stop-opacity=".12"/>
-        <stop offset="55%" stop-color="#EA6A0A" stop-opacity="0"/>
+      <!-- the black-to-orange gradient itself -->
+      <linearGradient id="b-ember" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0%"  stop-color="#EA6A0A" stop-opacity=".55"/>
+        <stop offset="42%" stop-color="#8a3c05" stop-opacity=".22"/>
+        <stop offset="75%" stop-color="#0e0e0e" stop-opacity="0"/>
       </linearGradient>
-      <radialGradient id="b-vig" cx="40%" cy="46%" r="82%">
-        <stop offset="42%" stop-color="#000" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#000" stop-opacity=".6"/>
+      <!-- keeps the top-left (where the copy lives) dark enough to read on -->
+      <radialGradient id="b-vig" cx="28%" cy="34%" r="88%">
+        <stop offset="38%" stop-color="#000" stop-opacity=".28"/>
+        <stop offset="100%" stop-color="#000" stop-opacity="0"/>
       </radialGradient>
     </defs>
     <rect width="1440" height="900" fill="#0e0e0e"/>
+    <rect width="1440" height="900" fill="url(#b-ember)"/>
     <rect width="1440" height="900" filter="url(#b-stone)" opacity="0.2" style="mix-blend-mode:screen"/>
-    <rect width="1440" height="900" fill="url(#b-warm)"/>
     <g filter="url(#b-warp)" fill="none" stroke-linecap="round" opacity=".75">
       <g stroke="#000" stroke-opacity=".4">
         <path d="M1440,120 L1300,190 L1330,320" stroke-width="2"/>
@@ -74,158 +77,122 @@
 
   <section class="wrap" style="padding-bottom:20px">
     <div class="posters">
-        <button class="poster-item" data-title="Clothes Swap" data-sub="Augustine House, March 2024">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg0" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3a1d05"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn0"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg0)"/>
-  <circle cx="191" cy="279" r="150" fill="#EA6A0A" opacity=".22"/>
-  <circle cx="233" cy="307" r="90" fill="#EA6A0A" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn0)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Clothes Swap<span>Augustine House, March 2024</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Film Night: The True Cost" data-sub="Powell Lecture Theatre, 2024">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#132a24"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn1"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="10" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg1)"/>
-  <circle cx="210" cy="350" r="150" fill="#2f9e7a" opacity=".22"/>
-  <circle cx="230" cy="270" r="90" fill="#2f9e7a" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn1)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Film Night: The True Cost<span>Powell Lecture Theatre, 2024</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Reading Trail" data-sub="Campus-wide, 2024">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2b0d0d"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="17" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg2)"/>
-  <circle cx="229" cy="121" r="150" fill="#c9453b" opacity=".22"/>
-  <circle cx="227" cy="233" r="90" fill="#c9453b" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn2)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Reading Trail<span>Campus-wide, 2024</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Earth Charter Recording" data-sub="Studio 3, 2025">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg3" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1d2440"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn3"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="24" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg3)"/>
-  <circle cx="248" cy="192" r="150" fill="#5b7fd4" opacity=".22"/>
-  <circle cx="224" cy="196" r="90" fill="#5b7fd4" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn3)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Earth Charter Recording<span>Studio 3, 2025</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Disarmament Panel" data-sub="Old Sessions House, 2025">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg4" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#33210a"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn4"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="31" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg4)"/>
-  <circle cx="267" cy="263" r="150" fill="#EA6A0A" opacity=".22"/>
-  <circle cx="221" cy="409" r="90" fill="#EA6A0A" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn4)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Disarmament Panel<span>Old Sessions House, 2025</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Poetry &amp; Protest" data-sub="The Verena Holmes Building, 2025">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg5" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2a1033"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn5"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="38" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg5)"/>
-  <circle cx="286" cy="334" r="150" fill="#a05bd4" opacity=".22"/>
-  <circle cx="218" cy="372" r="90" fill="#a05bd4" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn5)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Poetry &amp; Protest<span>The Verena Holmes Building, 2025</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Repair Cafe" data-sub="Students&#x27; Union, 2025">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg6" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f2a1c"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn6"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="45" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg6)"/>
-  <circle cx="305" cy="405" r="150" fill="#3fb37a" opacity=".22"/>
-  <circle cx="215" cy="335" r="90" fill="#3fb37a" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn6)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Repair Cafe<span>Students&#x27; Union, 2025</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Books That Changed Us" data-sub="Library foyer, 2026">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg7" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3a2205"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn7"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="52" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg7)"/>
-  <circle cx="84" cy="176" r="150" fill="#EA6A0A" opacity=".22"/>
-  <circle cx="212" cy="298" r="90" fill="#EA6A0A" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn7)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Books That Changed Us<span>Library foyer, 2026</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
-        <button class="poster-item" data-title="Open Mic: Inequalities" data-sub="Lounge, 2026">
-          <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="pg8" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2b0d1c"/><stop offset="100%" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <filter id="pn8"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="59" result="n"/>
-      <feColorMatrix in="n" type="saturate" values="0"/></filter>
-  </defs>
-  <rect width="400" height="600" fill="url(#pg8)"/>
-  <circle cx="103" cy="247" r="150" fill="#d44b86" opacity=".22"/>
-  <circle cx="209" cy="261" r="90" fill="#d44b86" opacity=".14"/>
-  <rect width="400" height="600" filter="url(#pn8)" opacity=".12" style="mix-blend-mode:screen"/>
-</svg>
+        <button class="poster-item" data-title="Poster title" data-sub="Event name and date">
+          <div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Poster image</span>
+        </div>
           <span class="zoom">+</span>
-          <span class="cap">Open Mic: Inequalities<span>Lounge, 2026</span></span>
+          <span class="cap">Poster title<span>Event name and date</span></span>
         </button>
     </div>
   </section>

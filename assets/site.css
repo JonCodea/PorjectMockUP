@@ -80,6 +80,25 @@ footer a:hover{color:var(--orange)}
 footer .fine{margin-top:30px; padding-top:20px; border-top:1px solid var(--line); font-size:12px; color:#8b847d; line-height:1.65}
 footer .fine b{color:#b5aea7}
 
+/* ---------- image placeholder ----------
+   Used everywhere the client supplies the real image. Reads unmistakably as a
+   placeholder so nothing here can be mistaken for finished artwork. */
+.imgph{
+  position:absolute; inset:0; z-index:1; display:grid; place-items:center; align-content:center; gap:9px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.022) 0 10px, rgba(255,255,255,0) 10px 20px),
+    linear-gradient(140deg, #1b1714 0%, #121010 100%);
+  color:rgba(255,255,255,.5);
+}
+/* position:static is load-bearing - .cover svg / .poster svg / .poster-item svg all
+   force position:absolute;inset:0 on any nested svg, which pins this glyph to the
+   top-left corner instead of centring it. */
+.imgph .glyph{position:static; inset:auto; width:40px; height:40px; opacity:.75}
+.imgph .lab{
+  font-size:10px; font-weight:700; letter-spacing:.17em; text-transform:uppercase;
+  color:rgba(255,255,255,.42);
+}
+
 /* ---------- cards (resources) ---------- */
 .grid3{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:24px}
 .card{

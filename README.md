@@ -21,8 +21,10 @@ or clone and open `index.html` — it runs from a double-clicked file, no server
 
 ## Design
 
-- **Orange and black**, per the brief.
-- **Textured, never flat.** Every background is a stone surface generated in **SVG filters** —
+- **Orange and black**, per the brief — the background is a **black-to-orange gradient**, orange
+  rising from the bottom-left and fading to black. Content sits in the dark top-left, which is what
+  keeps text readable over it.
+- **Textured, never flat.** The gradient carries a stone surface generated in **SVG filters** —
   `feTurbulence` for the noise, `feDiffuseLighting` for the relief, `feDisplacementMap` to warp the
   cracks so they fracture organically. No image files, nothing to license, scales to any screen, and
   one variable dials it up for a hero or down for a content page.
@@ -44,10 +46,14 @@ This mirrors the approach agreed for the real site:
 
 ## What's real and what isn't
 
-- **Real:** the 8 themes (taken from the current site), every book cover, every ISBN, the page
+Nothing here invents the project's own history. There are **no made-up campaigns**, no made-up
+activities and no made-up people — those are the client's to supply.
+
+- **Real:** the 8 themes (taken from the current site), every book, every ISBN, every cover, the page
   structure, and all the behaviour.
-- **Placeholder:** campaign write-ups, activity posters, dates, and the people named. All of it is
-  clearly labelled on the page. The client's own content drops into the same layouts.
+- **Placeholder:** campaigns, activities, all images, and the "why it's here" note on each resource.
+  They read as obvious placeholders on purpose, and the copy doubles as a hint at what belongs in
+  each field.
 
 ## How this maps to WordPress
 
