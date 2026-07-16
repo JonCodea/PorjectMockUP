@@ -292,7 +292,10 @@ footer .fine b{color:#b5aea7}
 .stat{border-left:2px solid var(--orange); padding-left:16px}
 .stat b{display:block; font-family:Georgia,serif; font-size:34px; line-height:1; color:#fff}
 .stat span{font-size:12px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; font-weight:600}
-.section{padding:116px 0 10px}
+/* Each section fills at least a viewport and centres its content, so the page
+   reads as a sequence of full screens rather than a cramped stack. */
+.section{min-height:100vh; display:flex; align-items:center; padding:120px 0}
+.section > .wrap{width:100%}
 .section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:44px; flex-wrap:wrap}
 .section-head h2{font-family:Georgia,serif; font-size:clamp(26px,3vw,38px); font-weight:600; margin:0; line-height:1.12}
 .section-head p{margin:8px 0 0; color:#e8e2dc; font-size:14.5px}
@@ -350,20 +353,20 @@ footer .fine b{color:#b5aea7}
 }
 
 /* ---------- home: about ---------- */
-.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:46px}
-.about-grid p{margin:0; font-size:16.5px; line-height:1.78; color:#ddd7d1}
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px}
+.about-grid p{margin:0; font-size:19.5px; line-height:1.8; color:#e4ded8}
 
 /* ---------- home: poem ----------
    Image takes roughly the left 30%, the verse takes the rest. */
-.poem{display:grid; grid-template-columns:minmax(0,30%) 1fr; gap:64px; align-items:center}
+.poem{display:grid; grid-template-columns:minmax(0,30%) 1fr; gap:76px; align-items:center}
 .poem .art{
   position:relative; aspect-ratio:3/4; border-radius:18px; overflow:hidden;
   border:1px solid var(--line); box-shadow:0 30px 70px rgba(0,0,0,.6);
 }
 .poem .verse .kicker{margin-bottom:22px}
 .poem .verse p{
-  font-family:Georgia,"Times New Roman",serif; font-size:21px; line-height:2; color:var(--text);
-  margin:0 0 30px;
+  font-family:Georgia,"Times New Roman",serif; font-size:27px; line-height:2.05; color:var(--text);
+  margin:0 0 40px;
 }
 .poem .verse .byline{
   display:block; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
@@ -373,7 +376,8 @@ footer .fine b{color:#b5aea7}
 /* ---------- home: contact form ---------- */
 .form-panel{
   background:var(--panel); border:1px solid var(--line); border-radius:20px;
-  padding:44px; box-shadow:0 24px 60px rgba(0,0,0,.5); max-width:820px;
+  padding:48px; box-shadow:0 24px 60px rgba(0,0,0,.5); max-width:820px;
+  margin:0 auto;
 }
 .frow{display:grid; grid-template-columns:1fr 1fr; gap:22px}
 .field{display:block; margin-bottom:22px}
@@ -399,4 +403,30 @@ footer .fine b{color:#b5aea7}
   .poem .verse p{font-size:19px; line-height:1.9}
   .form-panel{padding:26px 22px}
   .frow{grid-template-columns:1fr; gap:0}
+}
+
+/* ---------- contact: centre the whole section, form included ---------- */
+#contact .section-head{justify-content:center; text-align:center}
+#contact .section-head > div{max-width:640px}
+#contact .section-head .kicker{text-align:center}
+
+/* ---------- campaigns: year headings ---------- */
+.year-group{position:relative}
+.year-label{
+  position:sticky; top:calc(var(--nav-h) + 18px); z-index:6; pointer-events:none;
+  display:flex; justify-content:center; padding:0 24px; margin-bottom:-18px;
+}
+.year-label span{
+  font-family:Georgia,"Times New Roman",serif; font-weight:600; font-size:15px;
+  letter-spacing:.24em; color:var(--text);
+  background:rgba(8,7,6,.92); border:1px solid var(--line);
+  padding:9px 22px; border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+@media (max-width:900px){
+  .section{min-height:auto; display:block; padding:76px 0}
+  .about-grid p{font-size:17px}
+  .poem .verse p{font-size:21px; line-height:1.95}
+  .year-label{top:calc(var(--nav-h) + 34px)}
+  .year-label span{font-size:13px; padding:7px 16px}
 }
