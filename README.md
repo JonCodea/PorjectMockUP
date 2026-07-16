@@ -10,7 +10,7 @@ or clone and open `index.html` — it runs from a double-clicked file, no server
 
 | Page | What it shows |
 |---|---|
-| `index.html` | Home — hero, theme index, recent campaigns |
+| `index.html` | Home — hero, about, poem, resources, campaigns, contact form |
 | `activities.html` | Poster grid in rows of 3, click to enlarge, arrows to cycle, X to close |
 | `campaigns.html` | One full-height campaign card per viewport, scroll to the next |
 | `campaign-*.html` | The full campaign page each card's CTA opens (3 of them) |
@@ -49,14 +49,14 @@ This mirrors the approach agreed for the real site:
 
 ## What's real and what isn't
 
-Nothing here invents the project's own history. There are **no made-up campaigns**, no made-up
-activities and no made-up people — those are the client's to supply.
+**Every word of prose is a placeholder.** Nothing is written in the project's voice — not the hero
+headline, not the section headings, not the about copy. The client supplies the real words, and the
+placeholder text hints at what belongs in each slot.
 
-- **Real:** the 8 themes (taken from the current site), every book, every ISBN, every cover, the page
-  structure, and all the behaviour.
-- **Placeholder:** campaigns, activities, all images, and the "why it's here" note on each resource.
-  They read as obvious placeholders on purpose, and the copy doubles as a hint at what belongs in
-  each field.
+- **Real:** the 8 theme names (taken from the current site), every book, every ISBN, every cover, the
+  page structure, and all the behaviour.
+- **Placeholder:** all headings and prose, campaigns, activities, every image, the poem, and each
+  resource's "why it's here" note.
 
 ## How this maps to WordPress
 

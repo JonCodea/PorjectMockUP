@@ -37,9 +37,10 @@
            fails WCAG. This darkens ONLY that corner and leaves the rest of the
            field orange. Measured, not eyeballed - see the contrast audit. -->
       <linearGradient id="b-scrim" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%"  stop-color="#0b0603" stop-opacity=".82"/>
-        <stop offset="34%" stop-color="#0b0603" stop-opacity=".46"/>
-        <stop offset="70%" stop-color="#0b0603" stop-opacity="0"/>
+        <stop offset="0%"  stop-color="#0b0603" stop-opacity=".9"/>
+        <stop offset="30%" stop-color="#0b0603" stop-opacity=".66"/>
+        <stop offset="52%" stop-color="#0b0603" stop-opacity=".3"/>
+        <stop offset="78%" stop-color="#0b0603" stop-opacity="0"/>
       </linearGradient>
     </defs>
     <rect width="1440" height="900" fill="url(#b-ember)"/>
@@ -76,31 +77,69 @@
   </div>
 </nav>
 <main>
+
+  <!-- 1. HERO -->
   <section class="hero">
     <div class="wrap">
-      <span class="kicker">Canterbury Christ Church University</span>
-      <h1 class="big">Education is the most powerful <em>weapon</em></h1>
-      <p class="lede">Project 93 for Justice uses film, literature, music and the arts to open up
-      conversations about the social issues that shape our world - and to make the resources for
-      those conversations easy to find.</p>
+      <span class="kicker">Kicker goes here</span>
+      <h1 class="big">Main heading goes <em>here</em></h1>
+      <p class="lede">A short introduction goes here - two or three lines saying what this page is for, in the project&#x27;s own words.</p>
       <div class="btns">
-        <a class="cta" href="resources.html">Explore the resources <span class="arw">&rarr;</span></a>
-        <a class="cta ghost" href="campaigns.html">See our campaigns</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>8</b><span>Themes</span></div>
-        <div class="stat"><b>26</b><span>Resources</span></div>
-        <div class="stat"><b>3</b><span>Campaigns</span></div>
+        <a class="cta" href="resources.html">Primary action <span class="arw">&rarr;</span></a>
+        <a class="cta ghost" href="campaigns.html">Secondary action</a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 2. ABOUT -->
+  <section class="section" id="about">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <h2>Start with a theme</h2>
-          <p>Every resource is filed under the issue it speaks to.</p>
+          <span class="kicker">About</span>
+          <h2>Section heading goes here</h2>
+          <p>A single line of supporting text sits here.</p>
+        </div>
+        <a class="cta ghost" href="about.html">More about the project</a>
+      </div>
+      <div class="about-grid">
+        <p>A paragraph of the project&#x27;s own copy goes here. It can run as long as it needs to, and the layout will hold. This block is a placeholder so the page can be judged as a design rather than read as finished text.</p>
+        <p>A paragraph of the project&#x27;s own copy goes here. It can run as long as it needs to, and the layout will hold. This block is a placeholder so the page can be judged as a design rather than read as finished text.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. POEM - image on the left (~30%), verse on the right -->
+  <section class="section" id="poem">
+    <div class="wrap">
+      <div class="poem">
+        <div class="art"><div class="imgph">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <circle cx="8.5" cy="9.5" r="1.6"/>
+            <path d="M21 15.5l-4.5-4.5L7 20.5"/>
+          </svg>
+          <span class="lab">Image</span>
+        </div></div>
+        <div class="verse">
+          <span class="kicker">Poem title goes here</span>
+          <p>First line of the poem goes here,<br>and the second line follows on,<br>a third to carry the thought along,<br>a fourth to let it rest.</p>
+          <p>The second verse begins just here,<br>with room enough to breathe,<br>and closes on a final line<br>the reader takes away.</p>
+          <span class="byline">Attribution goes here</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. RESOURCES -->
+  <section class="section" id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Resources</span>
+          <h2>Section heading goes here</h2>
+          <p>A single line of supporting text sits here.</p>
         </div>
         <a class="cta ghost" href="resources.html">All 8 themes</a>
       </div>
@@ -109,40 +148,35 @@
         <span class="count">5</span>
         <div class="num">01</div>
         <h3>Sustainability</h3>
-        <p>Living within the limits of a finite planet, and who is asked to pay when we do not.</p>
+        <p>A short description of this theme goes here, in the project&#x27;s own words.</p>
         <span class="go">Explore this theme <span class="arw">&rarr;</span></span>
       </a>
       <a class="theme-card" href="theme-fast-fashion.html">
         <span class="count">3</span>
         <div class="num">02</div>
         <h3>Fast Fashion</h3>
-        <p>The real price of cheap clothing, paid by the people who make it and the places it ends up.</p>
+        <p>A short description of this theme goes here, in the project&#x27;s own words.</p>
         <span class="go">Explore this theme <span class="arw">&rarr;</span></span>
       </a>
       <a class="theme-card" href="theme-activism.html">
         <span class="count">4</span>
         <div class="num">03</div>
         <h3>Activism</h3>
-        <p>How ordinary people organise, refuse, and force change that was said to be impossible.</p>
-        <span class="go">Explore this theme <span class="arw">&rarr;</span></span>
-      </a>
-      <a class="theme-card" href="theme-inequalities.html">
-        <span class="count">5</span>
-        <div class="num">04</div>
-        <h3>Inequalities</h3>
-        <p>Race, class and gender, and the structures that quietly sort people into different lives.</p>
+        <p>A short description of this theme goes here, in the project&#x27;s own words.</p>
         <span class="go">Explore this theme <span class="arw">&rarr;</span></span>
       </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 5. CAMPAIGNS -->
+  <section class="section" id="campaigns">
     <div class="wrap">
       <div class="section-head">
         <div>
-          <h2>Recent campaigns</h2>
-          <p>What the project has actually done, and who led it.</p>
+          <span class="kicker">Campaigns</span>
+          <h2>Section heading goes here</h2>
+          <p>A single line of supporting text sits here.</p>
         </div>
         <a class="cta ghost" href="campaigns.html">All campaigns</a>
       </div>
@@ -162,8 +196,8 @@
         </div>
         <div class="body">
           <h3 class="title">Campaign Title</h3>
-          <p class="meta">Led by Campaign leader &middot; Dates</p>
-          <p class="desc">A short summary of the campaign goes here - what it was about, what it asked of people, and what came out of it. Two or ...</p>
+          <p class="meta">Campaign leader &middot; Dates</p>
+          <p class="desc">A short summary of the campaign goes here - what it was about, what it asked of people, and what came out of it. Two or three sentences sits comfortably in this space.</p>
         </div>
       </a>
       <a class="card" href="campaign-two.html">
@@ -181,8 +215,8 @@
         </div>
         <div class="body">
           <h3 class="title">Campaign Title</h3>
-          <p class="meta">Led by Campaign leader &middot; Dates</p>
-          <p class="desc">A short summary of the campaign goes here - what it was about, what it asked of people, and what came out of it. Two or ...</p>
+          <p class="meta">Campaign leader &middot; Dates</p>
+          <p class="desc">A short summary of the campaign goes here - what it was about, what it asked of people, and what came out of it. Two or three sentences sits comfortably in this space.</p>
         </div>
       </a>
       <a class="card" href="campaign-three.html">
@@ -200,13 +234,50 @@
         </div>
         <div class="body">
           <h3 class="title">Campaign Title</h3>
-          <p class="meta">Led by Campaign leader &middot; Dates</p>
-          <p class="desc">A short summary of the campaign goes here - what it was about, what it asked of people, and what came out of it. Two or ...</p>
+          <p class="meta">Campaign leader &middot; Dates</p>
+          <p class="desc">A short summary of the campaign goes here - what it was about, what it asked of people, and what came out of it. Two or three sentences sits comfortably in this space.</p>
         </div>
       </a>
       </div>
     </div>
   </section>
+
+  <!-- 6. CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Contact</span>
+          <h2>Section heading goes here</h2>
+          <p>A single line of supporting text sits here.</p>
+        </div>
+      </div>
+      <form class="form-panel" onsubmit="return false;">
+        <p class="note-banner" style="margin-bottom:26px"><b>Mockup form.</b> This does not send
+        anything - it is here so the section can be judged as a design.</p>
+        <div class="frow">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Their name" autocomplete="off">
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="their@email.com" autocomplete="off">
+          </label>
+        </div>
+        <label class="field">
+          <span>Subject</span>
+          <input type="text" name="subject" placeholder="What it is about" autocomplete="off">
+        </label>
+        <label class="field">
+          <span>Message</span>
+          <textarea name="message" rows="5" placeholder="Their message"></textarea>
+        </label>
+        <button class="cta" type="submit">Send message <span class="arw">&rarr;</span></button>
+      </form>
+    </div>
+  </section>
+
 </main>
 <footer>
   <div class="wrap">
