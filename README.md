@@ -21,10 +21,13 @@ or clone and open `index.html` — it runs from a double-clicked file, no server
 
 ## Design
 
-- **Orange and black**, per the brief — the background is a **black-to-orange gradient**, orange
-  rising from the bottom-left and fading to black. Content sits in the dark top-left, which is what
-  keeps text readable over it.
-- **Textured, never flat.** The gradient carries a stone surface generated in **SVG filters** —
+- **Orange-dominant**, per the brief — orange fills most of the field and falls away to near-black
+  only in the top-right. A soft scrim darkens the top-left corner where page copy and the orange
+  accent colour live; without it, orange-on-orange fails accessible contrast.
+- **Contrast is measured, not eyeballed.** Every piece of text sitting directly on the background was
+  sampled against the brightest background pixel behind it and checked against WCAG AA
+  (4.5:1 body, 3:1 large). All pass.
+- **Textured, never flat.** The orange carries a cracked stone surface generated in **SVG filters** —
   `feTurbulence` for the noise, `feDiffuseLighting` for the relief, `feDisplacementMap` to warp the
   cracks so they fracture organically. No image files, nothing to license, scales to any screen, and
   one variable dials it up for a hero or down for a content page.
