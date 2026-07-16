@@ -188,13 +188,45 @@ footer .fine b{color:#b5aea7}
   letter-spacing:.1em; color:var(--muted);
 }
 
-/* ---------- campaigns: one card per viewport ---------- */
+/* ---------- campaigns: ONE PORTRAIT CARD per viewport ----------
+   Cover image on top, then title / description / details / CTA stacked
+   underneath it, all inside a single rounded card. */
 .stack{position:relative; z-index:1; scroll-snap-type:y mandatory}
-.campaign{min-height:100vh; scroll-snap-align:start; scroll-snap-stop:always; display:flex; align-items:center; padding:96px 30px 60px}
-.campaign .row{max-width:1180px; margin:0 auto; width:100%; display:grid; grid-template-columns:1.05fr 1fr; gap:56px; align-items:center}
-.campaign:nth-child(even) .row{grid-template-columns:1fr 1.05fr}
-.campaign:nth-child(even) .cover{order:2}
-.campaign:nth-child(even) .copy{order:1}
+.campaign{
+  min-height:100vh; scroll-snap-align:start; scroll-snap-stop:always;
+  display:grid; place-items:center; padding:88px 24px 48px;
+}
+.camp-card{
+  width:min(560px, 94vw);
+  height:min(740px, calc(100vh - 150px));
+  display:flex; flex-direction:column; overflow:hidden;
+  border:1px solid var(--line); border-radius:28px;
+  background:rgba(18,16,15,.72); backdrop-filter:blur(3px);
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
+}
+/* cover sits on top and takes the upper portion of the card */
+.camp-card .cover{
+  position:relative; flex:0 0 42%; border-radius:0; border:0; box-shadow:none;
+  aspect-ratio:auto; border-bottom:1px solid var(--line);
+}
+/* everything else stacks below it, centred */
+.camp-card .copy{
+  flex:1; min-height:0; display:flex; flex-direction:column; align-items:center;
+  text-align:center; padding:24px 30px 28px; gap:0;
+}
+.camp-card .copy h2{font-size:clamp(24px,3.1vw,32px); margin:0 0 12px}
+.camp-card .copy .desc{
+  font-size:14.5px; line-height:1.58; margin:0 0 18px; max-width:44ch;
+  overflow:hidden; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical;
+}
+.camp-card .details{
+  justify-content:center; gap:22px; padding:14px 0 16px; margin:auto 0 18px;
+  width:100%; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.camp-card .det{text-align:center}
+.camp-card .lead{justify-content:center}
+.camp-card .cta{padding:12px 24px; font-size:14px}
+
 .cover{position:relative; aspect-ratio:4/3; border-radius:18px; overflow:hidden; border:1px solid var(--line); box-shadow:0 30px 70px rgba(0,0,0,.55)}
 .cover svg{position:absolute; inset:0; width:100%; height:100%}
 .cover .ph{
@@ -271,10 +303,13 @@ footer .fine b{color:#b5aea7}
   .hero{padding:120px 0 60px; min-height:auto}
   .posters{grid-template-columns:repeat(2,1fr); gap:14px}
   .stats{grid-template-columns:1fr; gap:16px; margin-top:40px}
-  .campaign{padding:118px 20px 48px; min-height:auto; scroll-snap-align:none}
+  .campaign{padding:104px 16px 40px; min-height:auto; scroll-snap-align:none}
   .stack{scroll-snap-type:none}
-  .campaign .row,.campaign:nth-child(even) .row{grid-template-columns:1fr; gap:26px}
-  .campaign:nth-child(even) .cover,.campaign:nth-child(even) .copy{order:0}
+  .camp-card{height:auto; width:100%}
+  .camp-card .cover{flex:0 0 auto; aspect-ratio:4/3}
+  .camp-card .copy{padding:22px 20px 24px}
+  .camp-card .copy .desc{-webkit-line-clamp:6}
+  .camp-card .details{flex-direction:column; gap:14px; margin:18px 0}
   .rail,.hint{display:none}
   footer .cols{grid-template-columns:1fr; gap:26px}
   .lb{padding:64px 12px}
