@@ -627,3 +627,49 @@ footer .fine b{color:#b5aea7}
   line-height:1.5; margin:0 0 26px; letter-spacing:-.01em;
 }
 .poem .verse p{font-size:21px; line-height:2.0}
+
+/* ---------- HERO: shadow, not a panel ----------
+   Everywhere else a text group sits on a marble panel, but at full-viewport
+   scale that panel reads as a card floating in the middle of the page rather
+   than as an arrival. Here the wall itself falls into shadow behind the copy
+   and fades back out, so there is no edge, corner or border to read as an
+   object. Layout is unchanged - only the backing is.
+
+   Sizing is load-bearing and is NOT a matter of taste. A radial gradient's
+   radii are relative to the box, so the vertical radius plus the centre offset
+   must land on exactly 100% or the fade is cut off at the section boundary and
+   draws a hard horizontal line across the full width. Centre 48% + radius 52%
+   = 100%, so it reaches full transparency precisely at the bottom edge. The
+   top and left are clipped on purpose - those are the page edges, where there
+   is nothing to seam against. */
+.hero{position:relative}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(82% 52% at 27% 48%,
+    rgba(6,4,2,.96) 0%,
+    rgba(6,4,2,.93) 34%,
+    rgba(6,4,2,.78) 56%,
+    rgba(6,4,2,.38) 78%,
+    rgba(6,4,2,0)   100%);
+}
+/* Narrow viewports are not just a smaller version of this: the copy stops being
+   a left-hand column and spans the full width, running straight out of an
+   off-centre shadow. Measured 3.19:1 on a 390px screen before this. The shadow
+   re-centres and widens; horizontal overshoot is safe because left and right
+   are page edges, and the vertical geometry stays 48% + 52% so the bottom edge
+   still resolves cleanly. */
+@media (max-width:900px){
+  .hero::before{
+    background:radial-gradient(135% 52% at 50% 48%,
+      rgba(6,4,2,.96) 0%,
+      rgba(6,4,2,.93) 40%,
+      rgba(6,4,2,.80) 62%,
+      rgba(6,4,2,.40) 82%,
+      rgba(6,4,2,0)   100%);
+  }
+}
+.hero > .wrap{
+  position:relative; z-index:1;
+  background:none; border:0; box-shadow:none;
+  max-width:1180px; padding:0 40px;
+}
