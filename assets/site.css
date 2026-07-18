@@ -108,7 +108,28 @@ body::before{
   box-shadow:0 2px 8px rgba(0,0,0,.45);
   transition:border-color .18s ease, color .18s ease, transform .18s ease;
 }
+/* The client's own black-and-white photographs from the deck, cropped square:
+   tree rings, an orchid, the painted spiral, a second orchid, and the tree that
+   his logo is drawn from. The line glyphs stay in the markup as a fallback and
+   are hidden whenever a photograph loads. A slight dark wash keeps the brighter
+   frames from glaring against the nav bar, and grayscale is belt-and-braces in
+   case a colour image is swapped in later. */
 .nav a.link .ic svg{width:15.5px; height:15.5px; display:block}
+.nav a.link[href="index.html"] .ic,
+.nav a.link[href="activities.html"] .ic,
+.nav a.link[href="campaigns.html"] .ic,
+.nav a.link[href="resources.html"] .ic,
+.nav a.link[href="about.html"] .ic{
+  background-size:cover; background-position:center; filter:grayscale(1);
+}
+.nav a.link[href="index.html"] .ic     {background-image:linear-gradient(rgba(8,6,4,.30),rgba(8,6,4,.30)),url(nav/home.webp)}
+.nav a.link[href="activities.html"] .ic{background-image:linear-gradient(rgba(8,6,4,.30),rgba(8,6,4,.30)),url(nav/activities.webp)}
+.nav a.link[href="campaigns.html"] .ic {background-image:linear-gradient(rgba(8,6,4,.30),rgba(8,6,4,.30)),url(nav/campaigns.webp)}
+.nav a.link[href="resources.html"] .ic {background-image:linear-gradient(rgba(8,6,4,.30),rgba(8,6,4,.30)),url(nav/resources.webp)}
+.nav a.link[href="about.html"] .ic     {background-image:linear-gradient(rgba(8,6,4,.30),rgba(8,6,4,.30)),url(nav/about.webp)}
+.nav a.link[href$=".html"] .ic svg{display:none}
+.nav a.link:hover .ic{filter:grayscale(1) brightness(1.18)}
+.nav a.link.on .ic{filter:grayscale(1) brightness(1.12)}
 .nav a.link:hover{color:#fff; background-color:rgba(255,255,255,.05)}
 .nav a.link:hover .ic{border-color:rgba(234,106,10,.85); color:#fff; transform:translateY(-1px)}
 .nav a.link:focus-visible{outline:2px solid var(--orange); outline-offset:2px}
