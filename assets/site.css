@@ -539,3 +539,81 @@ footer .fine b{color:#b5aea7}
   .cardwrap{gap:24px}
   .cardwrap > .card{max-width:100%; flex:1 1 100%}
 }
+
+/* ===========================================================
+   TEXT TREATMENT - one panel per group (chosen over per-line plates)
+   -----------------------------------------------------------
+   The field is bright orange and no white text passes contrast on it, so copy
+   must sit on something dark. Per-line plates were faithful to the client's
+   deck but read as redaction bars over ordinary body copy. A single marble
+   panel per group carries the same contrast, keeps the orange field visible
+   around it, and reuses the object the campaign/resource cards already are.
+
+   EXCEPTION: the poem keeps a plate per line - there, one slab per line IS the
+   client's slide-1 layout, not a background for convenience.
+
+   Deliberately at the end of the file: the line-height and display values these
+   rules override live on element rules further up, and equal-specificity rules
+   later in the file win. Two bugs were introduced trying to set them earlier.
+   =========================================================== */
+
+/* the plate span stays in the markup but is inert outside the poem, so the two
+   treatments can be swapped without touching 19 files again */
+.plate{
+  display:inline; background:none; padding:0; border-radius:0; box-shadow:none;
+}
+.poem .verse .plate{
+  background-color:var(--panel); background-image:url(marble.svg);
+  background-size:320px; background-blend-mode:screen;
+  padding:.14em .44em; border-radius:3px; box-shadow:0 6px 20px rgba(0,0,0,.34);
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+
+.textpanel,
+.hero > .wrap,
+.page-head > .wrap,
+.section-head,
+#about > .wrap{
+  background-color:#0c0908; background-image:url(marble.svg);
+  background-size:var(--marble-size); background-blend-mode:screen;
+  border:1px solid rgba(255,255,255,.14); border-radius:20px;
+  box-shadow:0 26px 70px rgba(0,0,0,.45);
+  padding:42px 46px 44px;
+}
+.hero > .wrap,.page-head > .wrap{max-width:860px}
+/* the whole row, not just its text: panelling only the text left the section's
+   CTA floating on the orange beside the slab, reading as an orphan */
+.section-head{align-items:center; padding:30px 36px 32px}
+/* About is one continuous block of prose, so its heading and its copy share a
+   single panel rather than stacking two slabs with a gap between them. */
+#about > .wrap{max-width:1100px}
+#about .section-head,#about .about-grid{
+  background:none; border:0; box-shadow:none; padding:0;
+}
+#about .section-head{margin-bottom:30px}
+.about-grid{gap:44px}
+
+/* plates were holding these lines apart; without them the copy closes back up */
+.hero h1{line-height:1.06}
+.section-head h2{line-height:1.14}
+.lede,.section-head p{line-height:1.62}
+.kicker{line-height:normal}
+.poem .verse p{line-height:2.05}
+
+/* both of these sat on their own slab only because they were out on the field;
+   inside a panel they are ordinary copy again */
+.backlink{
+  background:none; padding:0; border-radius:0; box-shadow:none; color:var(--muted);
+}
+.poem .verse .byline{color:var(--text)}
+
+/* the page-head panel needs to clear the fixed nav on its own now that the
+   section padding sits outside it */
+.page-head{padding:calc(var(--nav-h) + 60px) 0 62px}
+.page-head > .wrap,.hero > .wrap{margin-left:auto; margin-right:auto}
+
+@media (max-width:900px){
+  .textpanel,.hero > .wrap,.page-head > .wrap,
+  .section-head > div:first-child,.about-grid{padding:28px 24px 30px; border-radius:16px}
+  .about-grid{gap:20px}
+}
