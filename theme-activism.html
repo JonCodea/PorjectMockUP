@@ -7,65 +7,6 @@
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<div class="bg" aria-hidden="true">
-  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
-    <defs>
-      <filter id="b-stone" x="0" y="0" width="100%" height="100%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.011 0.016" numOctaves="5" seed="7" result="n"/>
-        <feDiffuseLighting in="n" lighting-color="#fff" surfaceScale="3.4">
-          <feDistantLight azimuth="235" elevation="45"/>
-        </feDiffuseLighting>
-      </filter>
-      <filter id="b-grain" x="0" y="0" width="100%" height="100%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" stitchTiles="stitch" result="n"/>
-        <feColorMatrix in="n" type="saturate" values="0"/>
-      </filter>
-      <filter id="b-warp" x="-20%" y="-20%" width="140%" height="140%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="11" result="t"/>
-        <feDisplacementMap in="SourceGraphic" in2="t" scale="12" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-      <!-- ORANGE-DOMINANT: orange fills most of the field, falling to near-black
-           only in the top-right. Measured white-on-background contrast where the
-           copy sits: 6.11:1 headline / 5.28:1 body - both clear of WCAG AA. -->
-      <linearGradient id="b-ember" x1="0" y1="1" x2="1" y2="0">
-        <stop offset="0%"  stop-color="#C55A11"/>
-        <stop offset="60%" stop-color="#7d3705"/>
-        <stop offset="100%" stop-color="#140a03"/>
-      </linearGradient>
-      <!-- Legibility scrim. Orange-dominant is the brief, but page copy and the
-           orange accent colour both live in the top-left, and orange-on-orange
-           fails WCAG. This darkens ONLY that corner and leaves the rest of the
-           field orange. Measured, not eyeballed - see the contrast audit. -->
-      <linearGradient id="b-scrim" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%"  stop-color="#0b0603" stop-opacity=".9"/>
-        <stop offset="30%" stop-color="#0b0603" stop-opacity=".66"/>
-        <stop offset="52%" stop-color="#0b0603" stop-opacity=".3"/>
-        <stop offset="78%" stop-color="#0b0603" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-    <rect width="1440" height="900" fill="url(#b-ember)"/>
-    <!-- MULTIPLY, not screen: the base is now a mid-tone, so multiply carves real
-         relief into it. (Over the old black base multiply would do nothing.) -->
-    <rect width="1440" height="900" filter="url(#b-stone)" opacity="0.6" style="mix-blend-mode:multiply"/>
-    <g filter="url(#b-warp)" fill="none" stroke-linecap="round">
-      <g stroke="#000" stroke-opacity=".5">
-        <path d="M1150,-20 L1070,180 L1150,380 L990,560 L1070,920" stroke-width="3.2"/>
-        <path d="M1070,180 L1360,250" stroke-width="1.8"/>
-        <path d="M1150,380 L1440,430" stroke-width="2.2"/>
-        <path d="M990,560 L740,650 L620,920" stroke-width="1.7"/>
-        <path d="M-20,520 L170,590 L110,720" stroke-width="1.5"/>
-        <path d="M170,590 L300,560" stroke-width="1"/>
-      </g>
-      <g stroke="#ffd9b0" stroke-opacity=".2" transform="translate(1.5,1.5)">
-        <path d="M1150,-20 L1070,180 L1150,380 L990,560 L1070,920" stroke-width="1.5"/>
-        <path d="M1150,380 L1440,430" stroke-width="1"/>
-        <path d="M-20,520 L170,590 L110,720" stroke-width=".9"/>
-      </g>
-    </g>
-    <rect width="1440" height="900" filter="url(#b-grain)" opacity="0.16" style="mix-blend-mode:overlay"/>
-    <rect width="1440" height="900" fill="url(#b-scrim)"/>
-  </svg>
-</div>
 <nav class="nav">
   <a class="logo" href="index.html">Project 93 <span class="o">for Justice</span></a>
   <div class="nav-links">
@@ -80,9 +21,9 @@
   <section class="page-head">
     <div class="wrap">
       <a class="backlink" href="resources.html">&#8249; All themes</a>
-      <span class="kicker">Theme 03 of 8</span>
-      <h1 class="big">Activism</h1>
-      <p class="lede">A short description of this theme goes here, in the project&#x27;s own words.</p>
+      <span class="kicker"><span class="plate">Theme 03 of 8</span></span>
+      <h1 class="big"><span class="plate">Activism</span></h1>
+      <p class="lede"><span class="plate">A short description of this theme goes here, in the project&#x27;s own words.</span></p>
       <div class="rule"></div>
     </div>
   </section>
@@ -90,8 +31,8 @@
   <section class="wrap">
     <div class="section-head">
       <div>
-        <h2>4 resources</h2>
-        <p>Book covers are embedded live from Open Library using each item's ISBN - nothing is copied onto our server.</p>
+        <h2><span class="plate">4 resources</span></h2>
+        <p><span class="plate">Book covers are embedded live from Open Library using each item's ISBN - nothing is copied onto our server.</span></p>
       </div>
     </div>
     <div class="grid3">
@@ -165,7 +106,7 @@
     </div>
 
     <div style="margin-top:64px;padding-top:34px;border-top:1px solid var(--line)">
-      <h4 style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:700">Other themes</h4>
+      <h4 style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px;font-weight:700"><span class="plate">Other themes</span></h4>
       <div style="display:flex;gap:9px;flex-wrap:wrap">
         <a class="cta ghost" href="theme-sustainability.html" style="font-size:13px;padding:9px 16px">Sustainability</a>
         <a class="cta ghost" href="theme-fast-fashion.html" style="font-size:13px;padding:9px 16px">Fast Fashion</a>
