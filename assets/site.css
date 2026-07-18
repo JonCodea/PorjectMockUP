@@ -603,15 +603,17 @@ main{overflow-x:clip}
    row: the row's CTA is a marble button that carries its own contrast, so
    including it would darken empty space for nothing. */
 .page-head > .wrap,
-.section-head > div:first-child,
-.about-grid{position:relative}
+.section-head > div:first-child{position:relative}
 .page-head > .wrap::before,
-.section-head > div:first-child::before,
-.about-grid::before{
-  content:""; position:absolute; inset:-22px -34px; z-index:0; pointer-events:none;
-  background:rgba(6,4,2,.52);
-  border-radius:34px;
-  filter:blur(30px);
+.section-head > div:first-child::before{
+  content:""; position:absolute; inset:-54px -58px; z-index:0; pointer-events:none;
+  background:rgba(6,4,2,.64);
+  border-radius:64px;
+  /* Enlarging the rectangle AND raising the blur is what makes it blend: the
+     core stays solid across the text while the falloff gets long and gradual.
+     Raising the blur alone just spreads the same ink thinner and washes the
+     middle out along with the edge. */
+  filter:blur(52px);
 }
 /* Every container that paints a ::before shadow must lift its own children
    above it, or the shadow renders ON TOP of the text and greys it out. The
@@ -619,8 +621,18 @@ main{overflow-x:clip}
    hidden - so the rule and the shadow have to be added together. */
 .hero > .wrap > *,
 .page-head > .wrap > *,
-.section-head > div:first-child > *,
-.about-grid > *{position:relative; z-index:1}
+.section-head > div:first-child > *{position:relative; z-index:1}
+/* The home About block stays a marble CARD rather than moving to shadow: it
+   carries real body copy, not just a title, so it reads as an object. Its
+   section head must therefore not paint a shadow inside the card. */
+#about > .wrap{
+  background-color:#0c0908; background-image:url(marble.svg);
+  background-size:var(--marble-size); background-blend-mode:screen;
+  border:1px solid rgba(255,255,255,.14); border-radius:20px;
+  box-shadow:0 26px 70px rgba(0,0,0,.45);
+  padding:42px 46px 44px; max-width:1100px;
+}
+#about .section-head > div:first-child::before{content:none}
 #about .section-head{margin-bottom:26px}
 
 .section-head{align-items:center}
@@ -644,10 +656,9 @@ main{overflow-x:clip}
 @media (max-width:900px){
   /* the shadow has to reach the full width once the copy stops being a column */
   .page-head > .wrap::before,
-  .section-head > div:first-child::before,
-  .about-grid::before{
-    inset:-16px -22px; border-radius:26px;
-    background:rgba(6,4,2,.60); filter:blur(24px);
+  .section-head > div:first-child::before{
+    inset:-26px -34px; border-radius:44px;
+    background:rgba(6,4,2,.64); filter:blur(34px);
   }
   .about-grid{gap:20px}
 }
@@ -680,10 +691,10 @@ main{overflow-x:clip}
    value here was measured at four widths, not eyeballed. */
 .hero{position:relative}
 .hero > .wrap::before{
-  content:""; position:absolute; inset:-30px -46px; z-index:0; pointer-events:none;
-  background:rgba(6,4,2,.50);
-  border-radius:46px;
-  filter:blur(42px);
+  content:""; position:absolute; inset:-52px -80px; z-index:0; pointer-events:none;
+  background:rgba(6,4,2,.48);
+  border-radius:90px;
+  filter:blur(70px);
 }
 .hero > .wrap{
   position:relative; z-index:1;
