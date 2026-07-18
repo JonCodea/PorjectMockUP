@@ -617,3 +617,13 @@ footer .fine b{color:#b5aea7}
   .section-head > div:first-child,.about-grid{padding:28px 24px 30px; border-radius:16px}
   .about-grid{gap:20px}
 }
+
+/* The poem title, set like the client's slide-1 plate rather than as a kicker.
+   Eleven lines at the old 27px overran the viewport, so the verse steps down a
+   size; the poem section is the one place where the line count is fixed and
+   known, so this can be tuned to fit exactly. */
+.poem .verse-title{
+  font-family:Georgia,"Times New Roman",serif; font-weight:600; font-size:31px;
+  line-height:1.5; margin:0 0 26px; letter-spacing:-.01em;
+}
+.poem .verse p{font-size:21px; line-height:2.0}
