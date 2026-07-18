@@ -593,32 +593,34 @@ main{overflow-x:clip}
 .page-head > .wrap,
 .section-head,
 #about > .wrap{position:relative}
+/* A soft rounded shadow that HUGS the text block, rather than a band across
+   the page. Built from a blurred rounded rectangle: the blur is what makes the
+   edges soft and the corners round, and because a filter is not clipped by the
+   element's own box there is no fade to cut off - which is what kept drawing
+   hard lines when this was a gradient.
+
+   On a section header the shadow goes on the text group only, not the whole
+   row: the row's CTA is a marble button that carries its own contrast, so
+   including it would darken empty space for nothing. */
+.page-head > .wrap,
+.section-head > div:first-child,
+.about-grid{position:relative}
 .page-head > .wrap::before,
-.section-head::before,
-#about > .wrap::before{
-  content:""; z-index:0; pointer-events:none;
-  /* A LINEAR band, not a radial blob. A radial gradient is clipped by its own
-     box on all four sides, so sizing it to cover left-aligned copy near the
-     column edge kept cutting the fade and drawing hard lines - first across the
-     bottom, then down both sides. Fading in one axis only removes that whole
-     class of bug: it is uniform across the width, so there is no side to clip
-     and contrast does not depend on where the text sits in the column.
-     Full-bleed to 100vw so the band spans the page; main{overflow-x:clip}
-     absorbs the overhang so it cannot cause horizontal scroll. */
-  position:absolute; left:50%; transform:translateX(-50%); width:100vw;
-  top:-104px; bottom:-104px;
-  background:linear-gradient(to bottom,
-    rgba(6,4,2,0)   0%,
-    rgba(6,4,2,.70) 27%,
-    rgba(6,4,2,.70) 73%,
-    rgba(6,4,2,0)   100%);
+.section-head > div:first-child::before,
+.about-grid::before{
+  content:""; position:absolute; inset:-22px -34px; z-index:0; pointer-events:none;
+  background:rgba(6,4,2,.52);
+  border-radius:34px;
+  filter:blur(30px);
 }
+/* Every container that paints a ::before shadow must lift its own children
+   above it, or the shadow renders ON TOP of the text and greys it out. The
+   contrast probe cannot catch this - it measures the backdrop with the copy
+   hidden - so the rule and the shadow have to be added together. */
+.hero > .wrap > *,
 .page-head > .wrap > *,
-.section-head > *,
-#about > .wrap > *{position:relative; z-index:1}
-/* About already carries its own shadow across heading and prose together, so
-   the section head inside it must not stack a second one on top */
-#about .section-head::before{content:none}
+.section-head > div:first-child > *,
+.about-grid > *{position:relative; z-index:1}
 #about .section-head{margin-bottom:26px}
 
 .section-head{align-items:center}
@@ -642,14 +644,10 @@ main{overflow-x:clip}
 @media (max-width:900px){
   /* the shadow has to reach the full width once the copy stops being a column */
   .page-head > .wrap::before,
-  .section-head::before,
-  #about > .wrap::before{
-    top:-64px; bottom:-64px;
-    background:linear-gradient(to bottom,
-      rgba(6,4,2,0)   0%,
-      rgba(6,4,2,.79) 24%,
-      rgba(6,4,2,.79) 76%,
-      rgba(6,4,2,0)   100%);
+  .section-head > div:first-child::before,
+  .about-grid::before{
+    inset:-16px -22px; border-radius:26px;
+    background:rgba(6,4,2,.60); filter:blur(24px);
   }
   .about-grid{gap:20px}
 }
@@ -681,14 +679,11 @@ main{overflow-x:clip}
    the small kicker need 4.5:1, and they only get it from this shadow. Every
    value here was measured at four widths, not eyeballed. */
 .hero{position:relative}
-.hero::before{
-  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
-  background:radial-gradient(68% 52% at 50% 48%,
-    rgba(6,4,2,.72) 0%,
-    rgba(6,4,2,.65) 34%,
-    rgba(6,4,2,.43) 58%,
-    rgba(6,4,2,.16) 80%,
-    rgba(6,4,2,0)   100%);
+.hero > .wrap::before{
+  content:""; position:absolute; inset:-30px -46px; z-index:0; pointer-events:none;
+  background:rgba(6,4,2,.50);
+  border-radius:46px;
+  filter:blur(42px);
 }
 .hero > .wrap{
   position:relative; z-index:1;
@@ -702,12 +697,4 @@ main{overflow-x:clip}
 /* Narrow viewports are not just a smaller version of this: the copy fills the
    width rather than sitting in a column, so the shadow has to widen with it. */
 @media (max-width:900px){
-  .hero::before{
-    background:radial-gradient(120% 52% at 50% 48%,
-      rgba(6,4,2,.76) 0%,
-      rgba(6,4,2,.69) 40%,
-      rgba(6,4,2,.47) 64%,
-      rgba(6,4,2,.18) 84%,
-      rgba(6,4,2,0)   100%);
   }
-}
