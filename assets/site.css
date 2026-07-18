@@ -541,23 +541,27 @@ footer .fine b{color:#b5aea7}
 }
 
 /* ===========================================================
-   TEXT TREATMENT - one panel per group (chosen over per-line plates)
+   TEXT TREATMENT - titles sit in shadow, objects sit on marble
    -----------------------------------------------------------
    The field is bright orange and no white text passes contrast on it, so copy
-   must sit on something dark. Per-line plates were faithful to the client's
-   deck but read as redaction bars over ordinary body copy. A single marble
-   panel per group carries the same contrast, keeps the orange field visible
-   around it, and reuses the object the campaign/resource cards already are.
+   has to sit on something dark. There are three devices, and keeping them
+   distinct is what stops the page reading as a stack of identical slabs:
 
-   EXCEPTION: the poem keeps a plate per line - there, one slab per line IS the
-   client's slide-1 layout, not a background for convenience.
+     TITLES   hero, page headers, section headers, the About block. No card:
+              the wall falls into shadow behind them and fades back out, so
+              there is no edge or corner to read as an object.
+     OBJECTS  campaign / resource / theme cards, the article body, the contact
+              form, the footer. Real marble panels, because they ARE things.
+     POEM     a plate per line - there, one slab per line is the client's
+              slide-1 layout rather than a backing applied for legibility.
 
-   Deliberately at the end of the file: the line-height and display values these
-   rules override live on element rules further up, and equal-specificity rules
-   later in the file win. Two bugs were introduced trying to set them earlier.
+   Shadow opacity is a floor set by measurement, not a taste setting: the white
+   body copy and the small kickers only clear 4.5:1 because of it. Every value
+   below was measured at four widths with the copy hidden, since sampling with
+   the text visible just measures the text.
    =========================================================== */
 
-/* the plate span stays in the markup but is inert outside the poem, so the two
+/* the plate span stays in the markup but is inert outside the poem, so the
    treatments can be swapped without touching 19 files again */
 .plate{
   display:inline; background:none; padding:0; border-radius:0; box-shadow:none;
@@ -569,28 +573,55 @@ footer .fine b{color:#b5aea7}
   -webkit-box-decoration-break:clone; box-decoration-break:clone;
 }
 
-.textpanel,
-.hero > .wrap,
+/* --- the title shadow ---
+   Applied by selector rather than a class so no markup changes: these are the
+   only three title containers in the site. The pseudo-element is absolutely
+   positioned, which also takes it out of .section-head's flex flow - as a
+   normal child it would become a flex item and push the row apart. */
+/* The shadow deliberately extends past its box on both sides so it fades out
+   rather than stopping at the text. On a narrow screen that overhang runs off
+   the viewport and creates horizontal scroll, so the sections clip it at their
+   own edge. `clip` rather than `hidden`: hidden would make these scroll
+   containers and break scroll-behaviour/anchor jumps. */
+/* on main, not on the individual sections: the title containers sit inside
+   several different wrappers (.section, .page-head, and a bare section.wrap on
+   the theme and campaign pages), so clipping per-section missed some and left
+   a 38px horizontal scroll on mobile. `clip` not `hidden` - hidden would make
+   main a scroll container and break anchor jumps; and clip does not establish
+   a containing block, so the fixed-position lightbox is unaffected. */
+main{overflow-x:clip}
 .page-head > .wrap,
 .section-head,
-#about > .wrap{
-  background-color:#0c0908; background-image:url(marble.svg);
-  background-size:var(--marble-size); background-blend-mode:screen;
-  border:1px solid rgba(255,255,255,.14); border-radius:20px;
-  box-shadow:0 26px 70px rgba(0,0,0,.45);
-  padding:42px 46px 44px;
+#about > .wrap{position:relative}
+.page-head > .wrap::before,
+.section-head::before,
+#about > .wrap::before{
+  content:""; z-index:0; pointer-events:none;
+  /* A LINEAR band, not a radial blob. A radial gradient is clipped by its own
+     box on all four sides, so sizing it to cover left-aligned copy near the
+     column edge kept cutting the fade and drawing hard lines - first across the
+     bottom, then down both sides. Fading in one axis only removes that whole
+     class of bug: it is uniform across the width, so there is no side to clip
+     and contrast does not depend on where the text sits in the column.
+     Full-bleed to 100vw so the band spans the page; main{overflow-x:clip}
+     absorbs the overhang so it cannot cause horizontal scroll. */
+  position:absolute; left:50%; transform:translateX(-50%); width:100vw;
+  top:-104px; bottom:-104px;
+  background:linear-gradient(to bottom,
+    rgba(6,4,2,0)   0%,
+    rgba(6,4,2,.70) 27%,
+    rgba(6,4,2,.70) 73%,
+    rgba(6,4,2,0)   100%);
 }
-.hero > .wrap,.page-head > .wrap{max-width:860px}
-/* the whole row, not just its text: panelling only the text left the section's
-   CTA floating on the orange beside the slab, reading as an orphan */
-.section-head{align-items:center; padding:30px 36px 32px}
-/* About is one continuous block of prose, so its heading and its copy share a
-   single panel rather than stacking two slabs with a gap between them. */
-#about > .wrap{max-width:1100px}
-#about .section-head,#about .about-grid{
-  background:none; border:0; box-shadow:none; padding:0;
-}
-#about .section-head{margin-bottom:30px}
+.page-head > .wrap > *,
+.section-head > *,
+#about > .wrap > *{position:relative; z-index:1}
+/* About already carries its own shadow across heading and prose together, so
+   the section head inside it must not stack a second one on top */
+#about .section-head::before{content:none}
+#about .section-head{margin-bottom:26px}
+
+.section-head{align-items:center}
 .about-grid{gap:44px}
 
 /* plates were holding these lines apart; without them the copy closes back up */
@@ -600,21 +631,26 @@ footer .fine b{color:#b5aea7}
 .kicker{line-height:normal}
 .poem .verse p{line-height:2.05}
 
-/* both of these sat on their own slab only because they were out on the field;
-   inside a panel they are ordinary copy again */
+/* these sat on their own slab only because they were out on the bare field */
 .backlink{
-  background:none; padding:0; border-radius:0; box-shadow:none; color:var(--muted);
+  background:none; padding:0; border-radius:0; box-shadow:none; color:#e8e2dc;
 }
 .poem .verse .byline{color:var(--text)}
 
-/* the page-head panel needs to clear the fixed nav on its own now that the
-   section padding sits outside it */
-.page-head{padding:calc(var(--nav-h) + 60px) 0 62px}
-.page-head > .wrap,.hero > .wrap{margin-left:auto; margin-right:auto}
+.page-head{padding:calc(var(--nav-h) + 76px) 0 62px}
 
 @media (max-width:900px){
-  .textpanel,.hero > .wrap,.page-head > .wrap,
-  .section-head > div:first-child,.about-grid{padding:28px 24px 30px; border-radius:16px}
+  /* the shadow has to reach the full width once the copy stops being a column */
+  .page-head > .wrap::before,
+  .section-head::before,
+  #about > .wrap::before{
+    top:-64px; bottom:-64px;
+    background:linear-gradient(to bottom,
+      rgba(6,4,2,0)   0%,
+      rgba(6,4,2,.79) 24%,
+      rgba(6,4,2,.79) 76%,
+      rgba(6,4,2,0)   100%);
+  }
   .about-grid{gap:20px}
 }
 
