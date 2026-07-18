@@ -86,10 +86,42 @@ body::before{
 }
 .logo{font-weight:800; font-size:16.5px; letter-spacing:-.01em; text-decoration:none; color:#fff; white-space:nowrap}
 .logo .o{color:var(--orange)}
-.nav-links{display:flex; align-items:center; gap:26px}
-.nav a.link{color:#bdb6af; text-decoration:none; font-size:13.5px; font-weight:600}
-.nav a.link:hover{color:#fff}
-.nav a.link.on{color:var(--orange)}
+/* ---------- nav items: cracked-stone tile + serif label ----------
+   The client's deck navigates by dark cracked-stone squares with serif labels
+   (slide 3 is him trying exactly this, three ways). His home page puts six of
+   them in a 3x2 wall, which we are not copying - as a homepage that is just a
+   menu. This keeps a real nav bar and brings the tile down to icon scale, so
+   the device is his but the structure is a website's. */
+.nav-links{display:flex; align-items:center; gap:4px}
+.nav a.link{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:6px 13px 6px 6px; border-radius:13px;
+  font-family:Georgia,"Times New Roman",serif; font-weight:600; font-size:14px;
+  letter-spacing:.005em; color:#ded7cf; text-decoration:none;
+  transition:color .18s ease, background-color .18s ease;
+}
+.nav a.link .ic{
+  width:30px; height:30px; flex:none; border-radius:9px; overflow:hidden;
+  display:grid; place-items:center; color:#cfc7bf;
+  background-color:#191512; background-image:url(tile.svg); background-size:cover;
+  border:1px solid rgba(255,255,255,.17);
+  box-shadow:0 2px 8px rgba(0,0,0,.45);
+  transition:border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.nav a.link .ic svg{width:15.5px; height:15.5px; display:block}
+.nav a.link:hover{color:#fff; background-color:rgba(255,255,255,.05)}
+.nav a.link:hover .ic{border-color:rgba(234,106,10,.85); color:#fff; transform:translateY(-1px)}
+.nav a.link:focus-visible{outline:2px solid var(--orange); outline-offset:2px}
+/* current page: the tile carries the state, not just the label colour */
+.nav a.link.on{color:#fff}
+.nav a.link.on .ic{
+  border-color:var(--orange); color:#fff;
+  box-shadow:0 0 0 1px rgba(234,106,10,.45), 0 2px 10px rgba(0,0,0,.5);
+}
+@media (prefers-reduced-motion:reduce){
+  .nav a.link,.nav a.link .ic{transition:none}
+  .nav a.link:hover .ic{transform:none}
+}
 
 /* ---------- shared layout ---------- */
 main{position:relative; z-index:1}
@@ -415,7 +447,9 @@ footer .fine b{color:#b5aea7}
   .logo{width:100%; margin-bottom:9px; font-size:15.5px}
   .nav-links{width:100%; overflow-x:auto; gap:16px; scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
-  .nav a.link{font-size:12.5px; white-space:nowrap}
+  .nav a.link{font-size:12.5px; white-space:nowrap; padding:5px 9px 5px 5px; gap:7px}
+  .nav a.link .ic{width:25px; height:25px; border-radius:8px}
+  .nav a.link .ic svg{width:13px; height:13px}
   .wrap{padding:0 22px}
   .page-head{padding:150px 0 46px}
   .hero{padding:140px 0 76px; min-height:auto}
